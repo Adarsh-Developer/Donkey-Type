@@ -242,9 +242,6 @@ const wordNumberPunctuationParagraphs = [
     "In the bustling market, a vendor offered a collection of 39 handmade rugs, each a unique masterpiece of craftsmanship and design. The vibrant patterns and intricate details showcased the artistry of cultures that spanned continents.",
 ];
 
-var correctCount = 0;
-var incorrectCount = 0;
-
 const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstStart, isEsc, onCompletion, isEnter, setIsEnter }) => {
   const [para, setPara] = useState("");
   const [countDown, setCountDown] = useState(isTimer);

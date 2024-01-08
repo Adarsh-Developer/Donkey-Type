@@ -76,7 +76,7 @@ function App() {
           ?
 
           <>
-            <Result correctCharCount={correctCharCount} incorrectCharCount={incorrectCharCount} isTimer={isTimer} isNumber={isNumber} isPunctuation={isPunctuation} />
+            <Result correctCharCount={correctCharCount} incorrectCharCount={incorrectCharCount} isTimer={isTimer} setIsTimer={setIsTimer} isNumber={isNumber} isPunctuation={isPunctuation} completed={completed} setCompleted={setCompleted} />
           </>
 
           :

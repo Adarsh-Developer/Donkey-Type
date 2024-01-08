@@ -8,7 +8,7 @@
     import Charts from "./Charts";
 
 
-    const Result = ({correctCharCount, incorrectCharCount, isTimer, isNumber, isPunctuation}) => {
+    const Result = ({correctCharCount, incorrectCharCount, isTimer, setIsTimer, isNumber, isPunctuation, completed, setCompleted}) => {
         const totalCharCount = correctCharCount + incorrectCharCount;
         const elapsedMinutes = Math.floor(isTimer / 60);
         const wpm = Math.floor((correctCharCount / 5) / (elapsedMinutes + 1));
@@ -71,12 +71,12 @@
                 </div>
 
                 <div className="links w-full flex justify-center gap-20 text-[#5e6063] text-xl">
-                    <button><IoIosArrowForward className="hover:text-[white] ease-in-out duration-300"/></button>
-                    <button><FiRefreshCw className="hover:text-[white] ease-in-out duration-300"/></button>
-                    <button><FaExclamationTriangle className="hover:text-[white] ease-in-out duration-300"/></button>
-                    <button><CgMenuLeftAlt className="hover:text-[white] ease-in-out duration-300"/></button>
-                    <button><FaBackward className="hover:text-[white] ease-in-out duration-300"/></button>
-                    <button><FaImage className="hover:text-[white] ease-in-out duration-300"/></button>
+                    <button><IoIosArrowForward className="dark:hover:text-[white] hover:text-black ease-in-out duration-300"/></button>
+                    <button><FiRefreshCw onClick={() => {setCompleted(false); setIsTimer(0)}} className="dark:hover:text-[white] hover:text-black ease-in-out duration-300"/></button>
+                    <button><FaExclamationTriangle className="dark:hover:text-[white] hover:text-black ease-in-out duration-300"/></button>
+                    <button><CgMenuLeftAlt className="dark:hover:text-[white] hover:text-black ease-in-out duration-300"/></button>
+                    <button><FaBackward className="dark:hover:text-[white] hover:text-black ease-in-out duration-300"/></button>
+                    <button><FaImage className="dark:hover:text-[white] hover:text-black ease-in-out duration-300"/></button>
                 </div>
 
                 <div className="loginTip w-full text-center text-[#5e6063]">
