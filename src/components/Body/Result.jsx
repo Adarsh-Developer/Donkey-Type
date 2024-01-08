@@ -8,12 +8,12 @@
     import Charts from "./Charts";
 
 
-    const Result = ({correctCharCount, incorrectCharCount, isTimer, setIsTimer, isNumber, isPunctuation, completed, setCompleted}) => {
+    const Result = ({correctCharCount, incorrectCharCount, isTimer, setIsTimer, isNumber, isPunctuation, setCompleted}) => {
         const totalCharCount = correctCharCount + incorrectCharCount;
         const elapsedMinutes = Math.floor(isTimer / 60);
-        const wpm = Math.floor((correctCharCount / 5) / (elapsedMinutes + 1));
-        const accuracy = Math.floor((correctCharCount / (correctCharCount + incorrectCharCount)) * 100);
-        const consistency = Math.floor((correctCharCount / (totalCharCount + correctCharCount)) * 100);
+        const wpm = Math.floor((correctCharCount / 5) / (elapsedMinutes + 1)) || 0;
+        const accuracy = Math.floor((correctCharCount / (correctCharCount + incorrectCharCount)) * 100) || 0;
+        const consistency = Math.floor((correctCharCount / (totalCharCount + correctCharCount)) * 100) || 0;
 
         return (
             <div className="font-Roboto total-result w-full bg-transparent flex flex-col gap-7">
@@ -42,7 +42,6 @@
                     <div className="top">test type</div>
                     <div className="bottom flex flex-col">
                         time {isTimer} <br /> english <br /> 
-                        {!isNumber && !isPunctuation && <span> punctuation</span>}
                         {isNumber && !isPunctuation && <span> numbers</span>}
                         {!isNumber && isPunctuation && <span> punctuation</span>}
                         {isNumber && isPunctuation && <span> numbers <br /> punctuation</span>}
