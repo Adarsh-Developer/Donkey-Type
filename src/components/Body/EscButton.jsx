@@ -3,11 +3,11 @@ import { IoMdMenu } from "react-icons/io";
 
 const EscButton = () => {
  return (
-  <div className="min-w-[100vw] min-h-[100vh] bg-[#000000b8] backdrop-blur-[10px] flex items-center justify-center">
+  <div className="min-w-[100vw] min-h-[100vh] bg-[#000000b8] flex items-center justify-center">
    <div className="flex flex-col dark:bg-[#323437] bg-gray-300 py-[15px] rounded-[10px] min-w-[600px] min-h-[85vh]  max-h-[85vh] font-Roboto text-[#595A5E]">
     <div className="flex items-center gap-[10px] text-[20px] text-[#646669] px-[20px]">
      <IoSearch />
-     <input type="text" placeholder="Type to search" className="font-Roboto bg-transparent placeholder:text-[#646669] placeholder:font-Roboto" />
+     <input type="text" placeholder="Type to search" className="flex-1 font-Roboto bg-transparent placeholder:text-[#646669] placeholder:font-Roboto outline-none " />
     </div>
     <div className="flex flex-col text-[15px] mt-[20px] gap-[10px] flex-1 overflow-auto  scrollbar text-[#646669] font-Roboto">
      <h1 className="px-[25px] py-[2px] cursor-pointer hover:bg-[#D1D0C5] hover:text-black" >@ Punctuation...</h1>

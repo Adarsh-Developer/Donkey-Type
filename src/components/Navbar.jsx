@@ -8,7 +8,7 @@ import { PiBellRingingFill } from "react-icons/pi";
 import { IoPersonOutline } from "react-icons/io5";
 
 
-function Navbar() {
+function Navbar({ isNotification, setIsNotification }) {
     return (
         <div className='w-[100%] flex items-center'>
             <a href="/" className='flex gap-3 cursor-pointer'>
@@ -16,7 +16,7 @@ function Navbar() {
                     <GiAbstract049 style={{ width: '30px', height: '50px', color: '#E2B714' }} />
                 </div>
 
-                <h1 className="text relative flex items-center text-3xl dark:text-white text-black">
+                <h1 className="text relative flex items-center text-3xl dark:text-[#d1d0c5] text-black">
                     <div className="absolute -top-[5%] left-[5%] text-xs text-[#646669]">donkey see</div>
                     <span className='font-medium'>donkeytype</span>
                 </h1>
@@ -32,7 +32,7 @@ function Navbar() {
                 </div>
 
                 <div className="account-info flex items-center gap-6 text-[#646669]">
-                    <PiBellRingingFill className='icons cursor-pointer hover:text-black dark:hover:text-white transition-all ease-in-out duration-500 '/>
+                    <PiBellRingingFill onClick={() => setIsNotification(!isNotification)} className='icons cursor-pointer hover:text-black dark:hover:text-white transition-all ease-in-out duration-500 '/>
                     <IoPersonOutline className='icons cursor-pointer hover:text-black dark:hover:text-white transition-all ease-in-out duration-500 '/>
                 </div>
             </div>
