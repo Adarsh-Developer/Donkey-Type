@@ -18,10 +18,12 @@ const Footer = ({ darkTheme, setDarkTheme }) => {
           <h1 className="ml-[5px] text-[15px]">Support</h1>
         </div>
 
+        <a href="https://github.com/Adarsh-Developer" target="_blank">
         <div className="flex justify-center items-center ml-[15px] text-[#646669] hover:text-black dark:hover:text-white cursor-pointer transition-all ease-in-out duration-500">
-          <FaCode className='text-[15px]' />
+          <FaCode className='text-[15px]'/>
           <h1 className="ml-[5px] text-[15px]">Github</h1>
         </div>
+        </a>
 
         <div className="flex justify-center items-center ml-[15px] text-[#646669] hover:text-black dark:hover:text-white cursor-pointer transition-all ease-in-out duration-500">
           <IoLogoDiscord className='text-[15px]' />
