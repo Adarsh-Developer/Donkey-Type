@@ -242,7 +242,7 @@ const wordNumberPunctuationParagraphs = [
     "In the bustling market, a vendor offered a collection of 39 handmade rugs, each a unique masterpiece of craftsmanship and design. The vibrant patterns and intricate details showcased the artistry of cultures that spanned continents.",
 ];
 
-const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstStart, isEsc, onCompletion, isEnter, setIsEnter, isCustomSec }) => {
+const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstStart, isEsc, onCompletion, isEnter, setIsEnter, isCustomSec, setIsCustomSec }) => {
   const [para, setPara] = useState("");
   const [countDown, setCountDown] = useState(isTimer);
   const [lastTypedChar, setLastTypedChar] = useState("");
@@ -343,6 +343,11 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
     const pressedKey = event.key;
     const unwantedKeys = ["Backspace", "CapsLock", "Alt", "Shift", "Tab", "Escape", "Control", "NumLock", "AltGraph", "Home", "End", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Insert", "Delete", "PageUp", "PageDown", "MediaPlayPause", "MediaTrackNext", "MediaTrackPrevious", "AudioVolumeUp", "AudioVolumeDown", "AudioVolumeMute", "Meta", "Unidentified"];
 
+    if(pressedKey === 'Enter' && isCustomSec){
+      setIsCustomSec(false)
+      // setIsEnter(false)
+    }
+    
     if (
       !unwantedKeys.includes(pressedKey) &&
       (/[a-zA-Z]/.test(pressedKey) || /\d/.test(pressedKey) || /[!"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~\s]/.test(pressedKey)) &&

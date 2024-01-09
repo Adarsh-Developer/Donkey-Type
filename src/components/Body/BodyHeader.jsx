@@ -4,7 +4,7 @@ import { HiMiniWrenchScrewdriver } from "react-icons/hi2";
 import { BiSolidQuoteLeft } from "react-icons/bi";
 import { BsTriangleHalf } from "react-icons/bs";
 
-const BodyHeader = ({ isNumber, setIsNumber, isPunctuation, setIsPunctuation, setIsTimer, setIsFirstStart, isCustomSec, setIsCustomSec, setIsEnter, second }) => {
+const BodyHeader = ({ isNumber, setIsNumber, isPunctuation, setIsPunctuation, setIsTimer, setIsFirstStart, isCustomSec, setIsCustomSec, setIsEnter}) => {
 
   const [selected, setSelected] = useState(null);
   const [onNumberClick, setOnNumberClick] = useState(false);
