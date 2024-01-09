@@ -391,14 +391,14 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
     };
   }, [isTimer, isFirstStart, startTimer]);
 
-  const handleRefreshClick = () => {
+  const handleRefreshClick = useEffect(() => {
     clearInterval(intervalRef.current);
     generateParas();
     setInputValue("");
     setLastTypedChar("");
     setCursorPosition(-1); // Reset cursor position to the beginning
     setIsEnter(false)
-  };
+  },[isTimer])
 
   // Inside the renderWordElements function
   const renderWordElements = (cursorPosition) => {
