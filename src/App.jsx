@@ -84,7 +84,7 @@ function App() {
           :
           (<div className="flex-1 flex flex-col items-center justify-between py-[50px]">
             <BodyHeader isNumber={isNumber} setIsNumber={setIsNumber} isPunctuation={isPunctuation} setIsPunctuation={setIsPunctuation} setIsTimer={setIsTimer} isTimer={isTimer} setIsFirstStart={setIsFirstStart} isEsc={isEsc} isCustomSec={isCustomSec} setIsCustomSec={setIsCustomSec} isEnter={isEnter} setIsEnter={setIsEnter} second={second} />
-            <BodyMain className='flex-1' isNumber={isNumber} isPunctuation={isPunctuation} isTimer={isTimer} setIsTimer={setIsTimer} isFirstStart={isFirstStart} setIsFirstStart={setIsFirstStart} isEnter={isEnter} setIsEnter={setIsEnter} onCompletion={handleBodyMainCompletion} />
+            <BodyMain className='flex-1' isNumber={isNumber} isPunctuation={isPunctuation} isTimer={isTimer} setIsTimer={setIsTimer} isFirstStart={isFirstStart} setIsFirstStart={setIsFirstStart} isEnter={isEnter} setIsEnter={setIsEnter} onCompletion={handleBodyMainCompletion} isCustomSec={isCustomSec} />
             <BodyFooter />
           </div>)
         }

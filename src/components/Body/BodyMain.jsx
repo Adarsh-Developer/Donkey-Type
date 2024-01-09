@@ -242,7 +242,7 @@ const wordNumberPunctuationParagraphs = [
     "In the bustling market, a vendor offered a collection of 39 handmade rugs, each a unique masterpiece of craftsmanship and design. The vibrant patterns and intricate details showcased the artistry of cultures that spanned continents.",
 ];
 
-const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstStart, isEsc, onCompletion, isEnter, setIsEnter }) => {
+const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstStart, isEsc, onCompletion, isEnter, setIsEnter, isCustomSec }) => {
   const [para, setPara] = useState("");
   const [countDown, setCountDown] = useState(isTimer);
   const [lastTypedChar, setLastTypedChar] = useState("");
@@ -341,17 +341,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
 
   const handleKeyDown = (event) => {
     const pressedKey = event.key;
-<<<<<<< HEAD
-=======
-    // console.log(pressedKey);
->>>>>>> 47d76cf3e23e730b924e91d9550bfcbf952247f1
     const unwantedKeys = ["Backspace", "CapsLock", "Alt", "Shift", "Tab", "Escape", "Control", "NumLock", "AltGraph", "Home", "End", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Insert", "Delete", "PageUp", "PageDown", "MediaPlayPause", "MediaTrackNext", "MediaTrackPrevious", "AudioVolumeUp", "AudioVolumeDown", "AudioVolumeMute", "Meta", "Unidentified"];
-
-
-    // ... (previous code)
-    // if(pressedKey === 'Enter' && !isFirstStart && isTimer){
-    //   setIsEnter(true)
-    // }
 
     if (
       !unwantedKeys.includes(pressedKey) &&
@@ -454,7 +444,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
         className="input-field invisible absolute z-[-99]"
         onKeyDown={isEsc && !isEnter ? null : handleKeyDown}
         value={inputValue}
-        readOnly={!isTimer || completed}
+        readOnly={!isTimer || !isEnter || isCustomSec}
       />
       <div className={`text-[#e2b714] font-medium ${countDown > 0 && isFirstStart ? "block" : "hidden"}`}>
         <h1 className="text-xl">{countDown}</h1>
