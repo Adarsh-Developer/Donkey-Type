@@ -11,7 +11,7 @@ import { IoPersonOutline } from "react-icons/io5";
 function Navbar({ isNotification, setIsNotification }) {
     return (
         <div className='w-[100%] flex items-center'>
-            <a href="/" className='flex gap-3 cursor-pointer'>
+            <a href="#" className='flex gap-3 cursor-pointer'>
                 <div className="icon items-center">
                     <GiAbstract049 style={{ width: '30px', height: '50px', color: '#E2B714' }} />
                 </div>
