@@ -253,7 +253,6 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
   const [cursorPosition, setCursorPosition] = useState(0);
 
   const startTimer = useCallback(() => {
-    console.log("first");
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCountDown((prevCountDown) => {
@@ -266,11 +265,9 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
         }
       });
     }, 1000);
-    console.log("logs");
   }, []);
 
   useEffect(() => {
-    console.log("Countdown updated:", countDown);
   }, [countDown, completed]);
 
   const generateParas = useCallback(() => {
@@ -302,7 +299,6 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
   
 
   useEffect(() => {
-    console.log("input value", inputValue);
   
     if (countDown === 1) {
         let correctCount = 0;
@@ -315,17 +311,12 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
           const inputChar = inputValue[charIndex];
           const isCharCorrect = paraChar === inputChar;
   
-          console.log(`Character ${charIndex}:`, isCharCorrect ? "correct" : "incorrect");
-  
           if (isCharCorrect) {
             correctCount++;
           } else {
             incorrectCount++;
           }
         }
-  
-        console.log("Correct Count:", correctCount);
-        console.log("Incorrect Count:", incorrectCount);
       }
   
       if (completed || inputValue.length === para.length) {
@@ -342,9 +333,6 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
             incorrectWords++;
           }
         }
-  
-        console.log("Correct Word Count:", correctWords);
-        console.log("Incorrect Word Count:", incorrectWords);
       }
       onCompletion(true, correctCount, incorrectCount);
     }
@@ -353,17 +341,18 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
 
   const handleKeyDown = (event) => {
     const pressedKey = event.key;
-    const unwantedKeys = ["Backspace", "Alt", "Shift", "Tab", "Escape", "Control"];
+    const unwantedKeys = ["Backspace", "CapsLock", "Alt", "Shift", "Tab", "Escape", "Control", "NumLock", "AltGraph", "Home", "End", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Insert", "Delete", "PageUp", "PageDown", "MediaPlayPause", "MediaTrackNext", "MediaTrackPrevious", "AudioVolumeUp", "AudioVolumeDown", "AudioVolumeMute", "Meta", "Unidentified"];
+
 
     // ... (previous code)
-    if(pressedKey === 'Enter' && !isFirstStart && isTimer){
-      setIsEnter(true)
-    }
+    // if(pressedKey === 'Enter' && !isFirstStart && isTimer){
+    //   setIsEnter(true)
+    // }
 
     if (
       !unwantedKeys.includes(pressedKey) &&
       (/[a-zA-Z]/.test(pressedKey) || /\d/.test(pressedKey) || /[!"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~\s]/.test(pressedKey)) &&
-      pressedKey !== "Enter"
+      pressedKey !== "Enter" && inputRef.current.readOnly == false
     ) {
       setLastTypedChar(pressedKey);
       setInputValue((prevInputValue) => prevInputValue + pressedKey);
@@ -373,6 +362,8 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
     } else if (event.keyCode === 13 && !isFirstStart && isTimer) {
       setIsFirstStart(true);
       startTimer();
+      setIsEnter(true)
+      inputRef.current.readOnly = false;
     } else if (event.keyCode === 8) {
       const inputValue = inputRef.current.value;
       setLastTypedChar(inputValue.slice(-1));
@@ -400,6 +391,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
       clearInterval(intervalRef.current);
     };
   }, [isTimer, isFirstStart, startTimer]);
+
   const handleRefreshClick = () => {
     clearInterval(intervalRef.current);
     generateParas();
@@ -458,6 +450,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
         className="input-field invisible absolute z-[-99]"
         onKeyDown={isEsc && !isEnter ? null : handleKeyDown}
         value={inputValue}
+        readOnly={!isTimer || completed}
       />
       <div className={`text-[#e2b714] font-medium ${countDown > 0 && isFirstStart ? "block" : "hidden"}`}>
         <h1 className="text-xl">{countDown}</h1>

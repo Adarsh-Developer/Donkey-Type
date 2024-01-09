@@ -14,7 +14,6 @@ const BodyHeader = ({ isNumber, setIsNumber, isPunctuation, setIsPunctuation, se
     if (index !== 4) {
       setSelected(index);
       setIsTimer(value)
-      console.log(`bodyHeader ${value}`)
       setIsFirstStart(false)
       setIsEnter(false)
     }else if(index === 4){
