@@ -341,6 +341,10 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
 
   const handleKeyDown = (event) => {
     const pressedKey = event.key;
+<<<<<<< HEAD
+=======
+    // console.log(pressedKey);
+>>>>>>> 47d76cf3e23e730b924e91d9550bfcbf952247f1
     const unwantedKeys = ["Backspace", "CapsLock", "Alt", "Shift", "Tab", "Escape", "Control", "NumLock", "AltGraph", "Home", "End", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", "Insert", "Delete", "PageUp", "PageDown", "MediaPlayPause", "MediaTrackNext", "MediaTrackPrevious", "AudioVolumeUp", "AudioVolumeDown", "AudioVolumeMute", "Meta", "Unidentified"];
 
 
