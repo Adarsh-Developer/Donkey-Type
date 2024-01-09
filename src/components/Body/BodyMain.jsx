@@ -256,7 +256,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCountDown((prevCountDown) => {
-        if (prevCountDown === 0) {
+        if (prevCountDown === -1) {
           clearInterval(intervalRef.current);
           setCompleted(true);
           return 0;
@@ -300,7 +300,7 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
 
   useEffect(() => {
   
-    if (countDown === 1) {
+    if (countDown === -1) {
         let correctCount = 0;
         let incorrectCount = 0;
       if (para && inputValue) {
@@ -345,7 +345,6 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
 
     if(pressedKey === 'Enter' && isCustomSec){
       setIsCustomSec(false)
-      // setIsEnter(false)
     }
     
     if (
@@ -391,14 +390,15 @@ const BodyMain = ({ isNumber, isPunctuation, isTimer, isFirstStart, setIsFirstSt
     };
   }, [isTimer, isFirstStart, startTimer]);
 
-  const handleRefreshClick = useEffect(() => {
+  const handleRefreshClick = () => {
     clearInterval(intervalRef.current);
     generateParas();
     setInputValue("");
     setLastTypedChar("");
     setCursorPosition(-1); // Reset cursor position to the beginning
     setIsEnter(false)
-  },[isTimer])
+  }
+  useEffect(() => handleRefreshClick, [isTimer])
 
   // Inside the renderWordElements function
   const renderWordElements = (cursorPosition) => {

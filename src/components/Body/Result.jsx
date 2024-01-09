@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { FiRefreshCw } from "react-icons/fi";
 import { FaExclamationTriangle } from "react-icons/fa";
@@ -20,9 +19,10 @@ const Result = ({ correctCharCount, incorrectCharCount, isTimer, setIsTimer, isN
         <div className="font-Roboto total-result w-full bg-transparent flex flex-col gap-7">
             <div className="result flex gap-10">
                 <div className="stats w-[100px] flex flex-col">
-                    <div className="group raw">
-                        <div className="top">raw</div>
-                        <div className="bottom size">{wpm - iwpm}</div>
+                    <div className="group-wpm flex flex-col items-start">
+                        <div className="top text-[#5e6063] text-3xl">wpm</div>
+
+                        <div className="bottom text-[#e2b714] text-6xl">{wpm}</div>
                     </div>
 
                     <div className="group-acc flex flex-col items-start">
@@ -53,7 +53,7 @@ const Result = ({ correctCharCount, incorrectCharCount, isTimer, setIsTimer, isN
                 </div>
                 <div className="group raw">
                     <div className="top">raw</div>
-                    <div className="bottom size">{correctCharCount}</div>
+                    <div className="bottom size">{wpm - iwpm}</div>
                 </div>
                 <div className="group characters">
                     <div className="top">characters</div>
