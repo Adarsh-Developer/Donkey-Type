@@ -13,7 +13,7 @@ const Result = ({ correctCharCount, incorrectCharCount, isTimer, setIsTimer, isN
     const wpm = Math.floor((correctCharCount / 5) / (elapsedMinutes === 0 ? 1 : elapsedMinutes)) || 0;
     const iwpm = Math.floor((incorrectCharCount / 5) / (elapsedMinutes === 0 ? 1 : elapsedMinutes)) || 0;
     const accuracy = Math.floor((correctCharCount / (totalCharCount)) * 100) || 0;
-    const consistency = Math.floor((correctCharCount / (incorrectCharCount === 0 ? totalCharCount : totalCharCount + incorrectCharCount)) * 100) || 0;
+    const consistency = Math.floor((correctCharCount / (incorrectCharCount === 0 ? totalCharCount : totalCharCount + incorrectCharCount)) * 100) || 0;
 
     return (
         <div className="font-Roboto total-result w-full bg-transparent flex flex-col gap-7">
@@ -53,7 +53,7 @@ const Result = ({ correctCharCount, incorrectCharCount, isTimer, setIsTimer, isN
                 </div>
                 <div className="group raw">
                     <div className="top">raw</div>
-                    <div className="bottom size">{wpm - iwpm}</div>
+                    <div className="bottom size">{wpm - iwpm < 0 ? 0 : wpm - iwpm}</div>
                 </div>
                 <div className="group characters">
                     <div className="top">characters</div>
