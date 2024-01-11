@@ -13,7 +13,7 @@ function Navbar({ isNotification, setIsNotification }) {
         <div className='w-[100%] flex items-center'>
             <a href="#" className='flex gap-3 cursor-pointer'>
                 <div className="icon items-center">
-                    <GiAbstract049 style={{ width: '30px', height: '50px', color: '#E2B714' }} />
+                    <img src={'../../assets/images/logo6_adobe.jpg'} />
                 </div>
 
                 <h1 className="text relative flex items-center text-3xl dark:text-[#d1d0c5] text-black">
