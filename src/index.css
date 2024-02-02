@@ -9,6 +9,51 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Tooltip  */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  top: 160%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 3px 18px;
+  background-color: hsla(0,0%,6%,.95);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: -19%;
+  display: block;
+  font-size: 8px;
+  margin: 0 auto; 
+  color: hsla(0,0%,6%,.95); 
+}
+
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+
+
+/* icons  */
 .icons {
   width: 20px;
   height: 20px;
@@ -18,25 +63,28 @@
   display: none;
 }
 
+
+/* enter animation  */
 @keyframes ping {
   0%, 100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 }
 
 .animate-ping {
-  animation: ping 1s 1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; /* Add animation property */
+  animation: ping 1s 1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite; 
 }
 
 .scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-.overfl {
-  overflow-wrap: break-word; /* or word-wrap: break-word; */
+.words-wrapper {
+  width: 80vw;
+  overflow: hidden; 
 }
 
 .colorless {

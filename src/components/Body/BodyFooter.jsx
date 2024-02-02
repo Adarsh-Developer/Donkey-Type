@@ -1,3 +1,5 @@
+import React from 'react'
+
 const BodyFooter = () => {
     return (
         <div className="font-Roboto flex flex-col items-center gap-2 text-[#646669] text-[12px] cursor-default select-none">
